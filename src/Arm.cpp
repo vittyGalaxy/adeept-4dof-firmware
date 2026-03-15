@@ -1,59 +1,54 @@
-#include <Servo.h>
+// #include <Servo.h>
 
-class Arm {
-    Servo base;
-    Servo shoulder;
-    Servo elbow;
-    Servo wrist;
-    Servo grip;
+// class Arm {
 
-    Arm(Servo base, Servo shoulder, Servo elbow, Servo wrist, Servo grip) {
-        setBase(base);
-        setShoulder(shoulder);
-        setElbow(elbow);
-        setWrist(wrist);
-        setGrip(grip);
-    }
+//     Arm(Servo base, Servo shoulder, Servo elbow, Servo wrist, Servo grip) {
+//         setBase(base);
+//         setShoulder(shoulder);
+//         setElbow(elbow);
+//         setWrist(wrist);
+//         setGrip(grip);
+//     }
 
-    // getter
-    Servo getBase() {
-        return this->base;
-    }
+//     // getter
+//     Joint getBase() {
+//         return this->base;
+//     }
 
-    Servo getShoulder() {
-        return this->shoulder;
-    }
+//     Joint getShoulder() {
+//         return this->shoulder;
+//     }
 
-    Servo getElbow() {
-        return this->elbow;
-    }
+//     Joint getElbow() {
+//         return this->elbow;
+//     }
 
-    Servo getWrist() {
-        return this->wrist;
-    }
+//     Joint getWrist() {
+//         return this->wrist;
+//     }
 
-    Servo getGrip() {
-        return this->grip;
-    }
+//     Joint getGrip() {
+//         return this->grip;
+//     }
 
-    // setter
-    void setBase(Servo base){
-        this->base = base;
-    }
+//     // setter
+//     void setBase(Joint base){
+//         this->base = base;
+//     }
 
-    void setShoulder(Servo shoulder){
-        this->shoulder = shoulder;
-    }
+//     void setShoulder(Joint shoulder){
+//         this->shoulder = shoulder;
+//     }
 
-    void setElbow(Servo elbow){
-        this->elbow = elbow;
-    }
+//     void setElbow(Joint elbow){
+//         this->elbow = elbow;
+//     }
 
-    void setWrist(Servo wrist){
-        this->wrist = wrist;
-    }
+//     void setWrist(Joint wrist){
+//         this->wrist = wrist;
+//     }
 
-    void setGrip(Servo grip){
-        this->grip = grip;
-    }
-};
+//     void setGrip(Joint grip){
+//         this->grip = grip;
+//     }
+// };
