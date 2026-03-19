@@ -8,7 +8,7 @@ Potentiometer::Potentiometer(int pin)
 
 int Potentiometer::degreeFormula() {
     int value = analogRead(this->pin);
-    return static_cast<int>((270 / 1023) * value);
+    return map(value, 0, 1023, 0, 180);
 }
 
 // getter
