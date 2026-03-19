@@ -5,23 +5,44 @@
 #include "definition.h"
 #include "Arm.h"
 
-Joint jointBase(PIN_BASE);
-Joint jointShoulder(PIN_SHOULDER);
-Joint jointElbow(PIN_ELBOW);
-Joint jointWrist(PIN_WRIST);
-Joint jointGrip(PIN_GRIP);
-Potentiometer potentiometer(PIN_POTENTIOMETERS_SHOULDER);
-Arm oArm(jointBase, jointShoulder, jointElbow, jointWrist, jointGrip);
+Joint*          jointBase       = nullptr;
+Joint*          jointShoulder   = nullptr;
+Joint*          jointElbow      = nullptr;
+Joint*          jointWrist      = nullptr;
+Joint*          jointGrip       = nullptr;
+Arm*            poArm           = nullptr; 
 
+Potentiometer*  poPotBase       = nullptr;
+Potentiometer*  poPotElbow       = nullptr;
+Potentiometer*  poPotWrist       = nullptr;
+
+
+/*----------------------------------------------------------------------*/
 void setup(){
     // setup
     Serial.begin(9600);
+
+    // Pot
+    poPotBase       = new Potentiometer(PIN_POTENTIOMETERS_BASE);
+    poPotElbow       = new Potentiometer(PIN_POTENTIOMETERS_ELBOW);
+    poPotWrist       = new Potentiometer(PIN_POTENTIOMETERS_WRIST);
+
+    // Joint
+    jointBase       = new Joint(PIN_BASE);
+    jointShoulder   = new Joint(PIN_SHOULDER);
+    jointElbow      = new Joint(PIN_ELBOW);
+    jointWrist      = new Joint(PIN_WRIST);
+    jointGrip       = new Joint(PIN_GRIP);
+
+    // Adeept
+    poArm           = new Arm(*jointBase, *jointShoulder, *jointElbow, *jointWrist, *jointGrip);
 }
 
+/*----------------------------------------------------------------------*/
 void loop() {
     // loop
-    int value = potentiometer.degreeFormula();
-    Serial.println(value);
-    jointShoulder.setDesiredValue(value);
-    oArm.setShoulder(jointShoulder);
+    // Serial.println(value);
+    jointBase->setDesiredValue(poPotBase->degreeFormula());
+    jointElbow->setDesiredValue(poPotElbow->degreeFormula());
+    jointWrist->setDesiredValue(poPotWrist->degreeFormula());
 }
