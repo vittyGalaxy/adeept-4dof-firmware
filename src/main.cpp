@@ -13,8 +13,10 @@ Joint*          jointGrip       = nullptr;
 Arm*            poArm           = nullptr; 
 
 Potentiometer*  poPotBase       = nullptr;
-Potentiometer*  poPotElbow       = nullptr;
-Potentiometer*  poPotWrist       = nullptr;
+Potentiometer*  poPotShoulder   = nullptr;
+Potentiometer*  poPotElbow      = nullptr;
+Potentiometer*  poPotWrist      = nullptr;
+Potentiometer*  poPotGrip       = nullptr;
 
 
 /*----------------------------------------------------------------------*/
@@ -24,8 +26,10 @@ void setup(){
 
     // Pot
     poPotBase       = new Potentiometer(PIN_POTENTIOMETERS_BASE);
-    poPotElbow       = new Potentiometer(PIN_POTENTIOMETERS_ELBOW);
-    poPotWrist       = new Potentiometer(PIN_POTENTIOMETERS_WRIST);
+    poPotShoulder   = new Potentiometer(PIN_POTENTIOMETERS_SHOULDER);
+    poPotElbow      = new Potentiometer(PIN_POTENTIOMETERS_ELBOW);
+    poPotWrist      = new Potentiometer(PIN_POTENTIOMETERS_WRIST);
+    poPotGrip       = new Potentiometer(PIN_POTENTIOMETERS_GRIP);
 
     // Joint
     jointBase       = new Joint(PIN_BASE);
@@ -43,6 +47,8 @@ void loop() {
     // loop
     // Serial.println(value);
     jointBase->setDesiredValue(poPotBase->degreeFormula());
+    jointShoulder->setDesiredValue(poPotShoulder->degreeFormula());
     jointElbow->setDesiredValue(poPotElbow->degreeFormula());
     jointWrist->setDesiredValue(poPotWrist->degreeFormula());
+    jointGrip->setDesiredValue(poPotGrip->degreeFormula());
 }
