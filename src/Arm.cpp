@@ -3,11 +3,7 @@
 Arm::Arm(Joint& base, Joint& shoulder, Joint& elbow, Joint& wrist, Joint& grip) 
 : base(base), shoulder(shoulder), elbow(elbow), wrist(wrist), grip(grip)
 {
-    setBase(base);
-    setShoulder(shoulder);
-    setElbow(elbow);
-    setWrist(wrist);
-    setGrip(grip);
+    
 }
 
 // getter
@@ -50,4 +46,25 @@ void Arm::setWrist(Joint& wrist){
 
 void Arm::setGrip(Joint& grip){
     this->grip = grip;
+}
+
+// moves
+void Arm::moveBase(int degree){
+    this->base.setDesiredValue(degree);
+}
+
+void Arm::moveShoulder(int degree){
+    this->shoulder.setDesiredValue(degree);
+}
+
+void Arm::moveElbow(int degree){
+    this->elbow.setDesiredValue(degree);
+}
+
+void Arm::moveWrist(int degree){
+    this->wrist.setDesiredValue(degree);
+}
+
+void Arm::moveGrip(int degree){
+    this->grip.setDesiredValue(degree);
 }

@@ -45,10 +45,9 @@ void setup(){
 /*----------------------------------------------------------------------*/
 void loop() {
     // loop
-    // Serial.println(value);
-    jointBase->setDesiredValue(poPotBase->degreeFormula());
-    jointShoulder->setDesiredValue(poPotShoulder->degreeFormula());
-    jointElbow->setDesiredValue(poPotElbow->degreeFormula());
-    jointWrist->setDesiredValue(poPotWrist->degreeFormula());
-    jointGrip->setDesiredValue(poPotGrip->degreeFormula());
+    poArm->moveBase(poPotBase->degreeFormula());
+    poArm->moveShoulder(poPotShoulder->degreeFormula());
+    poArm->moveElbow(poPotElbow->degreeFormula());
+    poArm->moveWrist(poPotWrist->degreeFormula());
+    poArm->moveGrip(poPotGrip->degreeFormula());
 }

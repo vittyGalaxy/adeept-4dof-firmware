@@ -27,6 +27,13 @@ class Arm{
     void setElbow(Joint& elbow);
     void setWrist(Joint& wrist);
     void setGrip(Joint& grip);
+
+    // moves
+    void moveBase(int degree);
+    void moveShoulder(int degree);
+    void moveElbow(int degree);
+    void moveWrist(int degree);
+    void moveGrip(int degree);
 };
 
 #endif //ARM_H
